@@ -1,0 +1,222 @@
+body {
+    text-align: center;
+    background: linear-gradient(135deg, #afd8ff, #ffc3a0);
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-bottom: 4rem;
+}
+  
+h1 {
+    font-size: 2.5em;
+    color: #333;
+    letter-spacing: 0.05rem;
+    margin: 0;
+    margin-top: 1rem;
+}
+
+#gameBoard {
+    gap: 2px;
+    background-color: #dddddd;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    display: inline-block;
+    margin: 2rem auto;
+    padding: 10px;
+}
+  
+.tile {
+    background-color: #bbb;
+    border: 1px solid #888;
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2em;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.2s, transform 0.1s;
+}
+
+.tile:hover {
+    transform: scale(1.1);
+    background-color: #5961b8;
+}
+
+.easy .tile {
+    width: 3rem;
+    height: 3rem;
+}
+
+.medium .tile {
+    width: 2.5rem;
+    height: 2.5rem;
+}
+
+.hard .tile {
+    width: 2rem;
+    height: 2rem;
+}
+  
+.tile.revealed {
+    background-color: #fff;
+    border-color: #ccc;
+    cursor: default;
+}
+  
+.tile.flagged {
+    background-color: #ffeb3b;
+}
+  
+.tile.bomb {
+    background-color: #f44336;
+}
+  
+.row {
+    display: flex;
+}
+
+
+.gameExtras {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    gap: 1rem;
+}
+  
+/* setarile jocului */
+
+#gamePreferences {
+    margin-top: 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 1rem;
+    background-color: #f9f9f9;
+    border: 2px solid #ccc;
+    border-radius: 10px;
+    width: 19rem;
+}
+
+label, input, select {
+    font-size: 1rem;
+    align-self: center;
+}
+
+label:not(:first-of-type) {
+    margin-top: 0.8rem;
+}
+
+input, select {
+    padding: 0.3rem;
+    border-radius: 0.5rem;
+    border: 1px solid #ccc;
+    width: 12rem;
+    cursor: pointer;
+}
+
+.resetBtn {
+    align-self: center;
+    width: 12rem;
+    margin-top: 1.5rem;
+    font-size: 0.9rem;
+    letter-spacing: 0.05rem;
+    font-weight: 600;
+    border: none;
+    background-color: #ccc;
+    padding: 0.3rem;
+    border-radius: 0.5rem;
+    transition: background-color 1s;
+}
+
+.resetBtn:hover {
+    background-color: white;
+    cursor: pointer;
+}
+
+/* legenda */
+#legend {
+    margin-top: 1rem;
+    padding: 1rem;
+    background-color: #f9f9f9;
+    border: 2px solid #ccc;
+    border-radius: 1rem;
+    width: 19rem;
+}
+
+h2 {
+    font-size: 1.2rem;
+    letter-spacing: 0.03rem;
+}
+
+#legend ul {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+#legend ul li {
+    display: flex;
+    align-items: center;
+    margin-bottom: 0.5rem;
+}
+
+.tile-legend {
+    display: inline-block;
+    width: 2rem;
+    height: 2rem;
+    margin-right: 0.8rem;
+    border: 2px solid #ccc;
+    border-radius: 0.2rem;
+}
+
+.tile-legend.unrevealed {
+    background-color: #ccc;
+}
+
+.tile-legend.revealed {
+    background-color: #fff;
+    border-color: #ccc;
+}
+
+.tile-legend.bomb {
+    background-color: red;
+}
+
+.tile-legend.flagged {
+    background-color: yellow;
+}
+
+/* mesaj */
+#message {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 2rem 4rem;
+    border-radius: 2rem;
+    background-color: #333;
+    color: #fff;
+    font-size: 2rem;
+    font-weight: bold;
+    text-align: center;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.5);
+    width: 70%;
+    max-width: 650px;
+    height: 150px;
+    line-height: 1.4;
+    display: none;
+    z-index: 1000;
+    transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+#message.show {
+    display: block;
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+}
+
+#message.hide {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0.9);
+}
